@@ -1,0 +1,20 @@
+{
+  "assignments": [
+    {
+      "name": "The Agentic AI Discovery Interview",
+      "module": "M01",
+      "due": "As listed on Canvas (in-class activity, ~10–15 minutes)",
+      "summary": "Use an AI agent to interview you and surface concrete places where agentic AI could act on your behalf.",
+      "details": "Follow the steps in the activity handout: paste the analyst prompt, answer follow-ups, and export or screenshot your opportunity table for submission if required.",
+      "keywords": ["discovery", "interview", "M01", "activity"]
+    },
+    {
+      "name": "Module 01 readings and orientation",
+      "module": "M01",
+      "due": "Per weekly schedule",
+      "summary": "Orientation to agentic AI themes and where AI earns its keep in real workflows.",
+      "details": "See m01_where_ai_earns_its_keep in the syllabus pack for themes and discussion prep.",
+      "keywords": ["M01", "orientation", "readings"]
+    }
+  ]
+}

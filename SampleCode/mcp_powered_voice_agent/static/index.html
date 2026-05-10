@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISYS 398U — Course Concierge</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; background: #f4f6f8; color: #1a1a1a; }
+    body { max-width: 480px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.25rem; }
+    p.sub { font-size: 0.875rem; color: #555; margin: 0 0 1.25rem; }
+    .card { background: #fff; border-radius: 12px; padding: 1.25rem; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+    button.call {
+      width: 100%; padding: 1rem 1.25rem; font-size: 1.05rem; font-weight: 600; border: none;
+      border-radius: 10px; cursor: pointer; margin-bottom: 1rem;
+    }
+    button.call.in { background: #1b5e20; color: #fff; }
+    button.call.in:hover { background: #2e7d32; }
+    button.call.out { background: #b71c1c; color: #fff; }
+    button.call.out:hover { background: #c62828; }
+    button.call:disabled { opacity: 0.55; cursor: not-allowed; }
+    .row { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .label { color: #666; display: inline-block; min-width: 6.5rem; }
+    .canvas-wrap {
+      display: flex; justify-content: center; margin-bottom: 0.75rem;
+      border-radius: 12px; background: #eceff1; padding: 0.5rem 0;
+    }
+    #callCanvas {
+      display: block; cursor: pointer; touch-action: manipulation;
+      border-radius: 8px; background: #eceff1;
+    }
+    .caps {
+      font-size: 0.78rem; color: #444; line-height: 1.45; margin-bottom: 1rem;
+      padding: 0.65rem 0.75rem; background: #f0f4f8; border-radius: 8px; border: 1px solid #dde3ea;
+    }
+    #log {
+      margin-top: 1rem; font-size: 0.75rem; font-family: ui-monospace, monospace;
+      background: #0d1117; color: #c9d1d9; border-radius: 8px; padding: 0.75rem;
+      height: 180px; overflow-y: auto; white-space: pre-wrap; word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>Course Concierge</h1>
+  <p class="sub">Realtime voice in the browser — tap the phone or Call in, allow the microphone, then speak.</p>
+  <div class="caps">
+    <strong>What this demo can use:</strong>
+    ingested syllabus &amp; module docs (vector search),
+    a local assignment list,
+    and <strong>Supabase Postgres over MCP</strong> (read-only SQL on your <code>DATABASE_URL</code>).
+    <strong>Canvas LMS is not connected here.</strong>
+  </div>
+  <div class="card">
+    <div class="canvas-wrap">
+      <canvas id="callCanvas" width="280" height="200" aria-label="Call status"></canvas>
+    </div>
+    <button id="callBtn" class="call in" type="button">Call in</button>
+    <div class="row"><span class="label">Status</span><span id="status">Idle</span></div>
+    <div class="row"><span class="label">Agent</span><span id="agent">—</span></div>
+    <div class="row"><span class="label">Mic</span>
+      <button id="muteBtn" type="button" disabled style="padding:0.25rem 0.6rem;font-size:0.8rem;">Mute mic</button>
+    </div>
+    <div id="log"></div>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
