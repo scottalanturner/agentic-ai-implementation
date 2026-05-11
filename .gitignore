@@ -1,3 +1,6 @@
 .env
 __pycache__/
 *.py[cod]
+
+# Instructor exemplars — keep locally; do not publish to the remote repo
+Assignments/**/*exemplar*.md
