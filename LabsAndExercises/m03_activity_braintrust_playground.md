@@ -1,7 +1,5 @@
-# Activity: Prompt Eval in Braintrust Playground
+# Prompt Eval in Braintrust Playground
 
-**Format:** In-class activity — solo  
-**Time:** 15–20 minutes  
 **Requires:** Free Braintrust account · braintrust.dev
 
 ---
@@ -23,7 +21,7 @@ You'll write two versions of a system prompt for a task from your own work, run 
 
 ---
 
-## Step 1: Create Your Free Account (2 min)
+## Step 1: Create Your Free Account
 
 Go to **braintrust.dev** and sign up. The free tier includes everything you need for this activity. No credit card required.
 
@@ -31,7 +29,7 @@ Once you're in, you'll land on your organization dashboard. You'll see options t
 
 ---
 
-## Step 2: Choose Your Task and Write Two Prompts (5 min)
+## Step 2: Choose Your Task and Write Two Prompts
 
 Pick a task you'd realistically want an agent to handle at work. Use one you identified in the M01 Discovery Interview or pick a new one. It should be:
 
@@ -59,7 +57,7 @@ Write both prompts in a text editor before going into Braintrust.
 
 ---
 
-## Step 3: Set Up Your Evaluation in Braintrust (5 min)
+## Step 3: Set Up Your Evaluation in Braintrust
 
 In your Braintrust project:
 
@@ -78,7 +76,7 @@ In your Braintrust project:
 
 ---
 
-## Step 4: Run the Experiment (5 min)
+## Step 4: Run the Experiment
 
 - Click **Experiments** → **New Experiment**
 - Select your dataset (`test-questions`)
@@ -91,7 +89,7 @@ Now you have two experiments side by side.
 
 ---
 
-## Step 5: Compare and Read the Results (3 min)
+## Step 5: Compare and Read the Results
 
 Go to **Experiments** and open both runs. Look at:
 
