@@ -32,9 +32,9 @@ Every slide fits one of these. The category determines the prompt rules and wher
 
 **When:** Learning Objectives (top of module), Key Takeaways (end of module). Any slide whose entire content is a numbered or bulleted list students need to *read*.
 
-**Treatment:** Native PowerPoint text — no image generation. The visual identity is preserved by a sketch-style border element (a hand-drawn rule, a corner doodle) that the tooling adds as a template. The text itself is typeset for readability.
+**Treatment:** Image generation — every slide in the deck is a full-bleed image, including text-heavy slides. The prompts file marks these with `[text-only]`, and the build script auto-templates a colored-pencil-sketch prompt that renders the slide's body content as hand-lettered numbered items on a clean white page. The visual identity matches the rest of the deck (sketch, white background, hand-lettered) — the slide just happens to be text-dominated instead of illustration-dominated.
 
-**Lesson-file marker:** No `[Image prompt: ...]` block. The tooling already skips image generation when no prompt is present.
+**Lesson-file marker (sidecar):** `[text-only]`. The build script reads the slide's body content from the lesson markdown, constructs a prompt template around it, and dispatches a normal image generation call. The text content is preserved in the markdown — only the rendering goes through the image pipeline.
 
 ### 2. Title slides
 
