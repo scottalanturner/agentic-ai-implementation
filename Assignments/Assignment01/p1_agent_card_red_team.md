@@ -1,7 +1,7 @@
 # P1 — Agent Card + Red Team
 
 **Platform required:** Google AI Studio — [aistudio.google.com](https://aistudio.google.com) (free, Google account only)  
-**Submission:** One PDF or Word document, uploaded to Blackboard
+**Submission:** A folder in your GitHub repository containing your deliverable and any images, as described in [Submission Requirements](#submission-requirements) below. Submit the link to that folder as your instructor directs (for example, via Blackboard or your course GitHub workflow).
 
 ---
 
@@ -13,7 +13,7 @@ You will do two things: plan your agent, then attack it.
 
 First, you will write an Agent Card — a one-page planning document that forces you to be specific about what your agent does, what it can never do, and exactly when it should stop and hand off to a human. This is the professional equivalent of a design spec, and it is the document that separates an agent someone can trust from one that surprises you at the worst possible moment.
 
-Then you will deploy that Agent Card as a live system prompt in Google AI Studio and red team it — deliberately trying to make it fail in five specific ways. When you find failures, you will patch your SOP and confirm the fix works. You will hand in the final version of both documents.
+Then you will deploy that Agent Card as a live system prompt in Google AI Studio and red team it — deliberately trying to make it fail in five specific ways. When you find failures, you will patch your SOP and confirm the fix works. You will hand in the finalized Agent Card and system-prompt work in your GitHub submission folder.
 
 This is P1. Everything you build later in the course starts here.
 
@@ -122,7 +122,7 @@ Once your Agent Card is complete, you will convert it into a working system prom
 3. You will see two areas: a **System instructions** panel on the left, and a **chat window** on the right.
 4. In the **System instructions** panel, paste your agent's role, task, constraints, output format, and escalation trigger — written as direct instructions to the model. Use the SOP structure from M02 Activity 3 as your guide.
 5. Set the model to **Gemini 1.5 Flash** (free tier, fast, appropriate for this task).
-6. Take a screenshot of the System Instructions panel with your prompt visible. You will include this in your submission.
+6. Take a screenshot of the System Instructions panel with your prompt visible. Include it in your submission as described under [Submission Requirements](#submission-requirements): for example, a separate image file in the same GitHub folder, embedded in your PDF, or referenced from your markdown file with a relative path.
 
 **How this works:** The System Instructions panel is your agent's standing orders — it never changes between conversations. The chat window on the right is where you type each input and read each response. Think of the chat window as the inbox your agent is processing: whatever you type there is what the agent acts on.
 
@@ -207,19 +207,75 @@ For each of the two:
 2. **Run the same attack again** against the revised prompt.
 3. **Document the result** — did the fix work? If not, what did the revised prompt do instead?
 
-You will submit both the original and revised versions of your system prompt (copy/paste both into your document — no need to manage files).
+Include both the original and revised versions of your system prompt in your PDF or markdown file (copy/paste is fine).
 
 ---
 
 ## Submission Requirements
 
-Your submission is a single PDF or Word document containing all of the following, in order:
+Submit your work **in a folder on GitHub** (your instructor will specify the repository, branch, and folder naming convention if applicable). Everything graders need must be reachable from that folder.
+
+### Deliverable format
+
+Your main write-up must be **either**:
+
+- A **PDF** (`.pdf`), or  
+- A **Markdown** file (`.md`)
+
+**Do not submit Word documents** (`.docx`). PDF and Markdown render consistently for graders and version control.
+
+### Screenshot of System Instructions (Part 2)
+
+You may include the screenshot in any of these ways (pick one or combine as needed):
+
+- A **separate image file** in the same GitHub folder (for example `system-instructions.png` or under a `screenshots/` subfolder), **or**
+- **Embedded inside your PDF**, **or**
+- **Referenced from your Markdown** using a relative image link (for example `![System instructions](screenshots/system-instructions.png)`)
+
+If the screenshot is only a separate file, name it clearly so graders know what it is.
+
+### Content checklist (in order)
+
+Whether you use PDF or Markdown, your submission must include all of the following:
 
 1. **Agent Card** — all seven sections completed (Part 1)
-2. **Screenshot** of your Google AI Studio System Instructions panel showing your deployed system prompt (Part 2)
+2. **Screenshot** of your Google AI Studio System Instructions panel showing your deployed system prompt (Part 2), per the options above
 3. **Red Team Battery** — all five attacks documented with input, response, pass/fail, and diagnosis (Part 3)
 4. **Fix and Retest** — two failures identified, revised prompts shown, retest results documented (Part 4)
 5. **Reflection** — answer both questions below (Part 5)
+
+### Example folder layouts
+
+These are examples only; match your instructor’s naming rules if they differ.
+
+**Option A — Markdown + separate screenshot**
+
+```text
+assignments/p1-agent-card-red-team/
+├── README.md                    # or p1-submission.md — full write-up with all parts
+└── screenshots/
+    └── ai-studio-system-instructions.png
+```
+
+In `README.md`, the screenshot can appear with: `![AI Studio system instructions](screenshots/ai-studio-system-instructions.png)`.
+
+**Option B — PDF + separate screenshot**
+
+```text
+assignments/p1-agent-card-red-team/
+├── p1-agent-card-red-team.pdf   # all written parts; screenshot embedded in the PDF
+└── screenshots/
+    └── ai-studio-system-instructions.png   # optional duplicate if you also want a standalone image
+```
+
+**Option C — PDF only (screenshot inside the PDF)**
+
+```text
+assignments/p1-agent-card-red-team/
+└── p1-agent-card-red-team.pdf     # Agent Card, embedded screenshot, red team, fix/retest, reflection
+```
+
+Commit and push your folder, then submit the **URL to that folder** on GitHub (the page that lists the folder’s contents) unless your instructor specifies otherwise.
 
 ---
 
