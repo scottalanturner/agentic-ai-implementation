@@ -1,10 +1,13 @@
-## Grading Rubric
+# P1 — Agent Card + Red Team: Grading Rubric
 
-| Section | Points | What earns full credit |
-|---------|--------|----------------------|
-| Agent Card | 35 | All seven sections present; constraints and escalation trigger are specific, not vague; a stranger could understand scope without explanation |
-| Deployment Screenshot | 5 | System instructions visible; clearly corresponds to Agent Card |
-| Red Team Battery | 30 | All five attacks attempted with correct attack type; input and response both documented; diagnosis is specific |
-| Fix and Retest | 20 | Two genuine failures identified; revised prompt shown; retest result documented honestly (partial fix is fine — honesty is graded, not perfection) |
-| Reflection | 10 | Specific, honest, references actual results from the red team — not generic statements |
-| **Total** | **100** | |
+For each **criterion row**, choose the **one** achievement column that best matches the submission and award that cell’s **points**. Sum the five rows (maximum **100** if every row is Proficient).
+
+| **Criteria** | **Novice** | **Competent** | **Proficient** |
+|--------------|------------|---------------|----------------|
+| **Agent Card** | **Points: 14** — Missing or skeletal sections, or mostly vague language; a reader cannot tell what the agent must never do or when a human must take over. | **Points: 26** — All sections present and on-task, but constraints, escalation, or inputs still lean generic (“use judgment,” “escalate if unsure”) or leave important edge cases unstated. | **Points: 35** — All required sections present; purpose, inputs (has / does not have), task steps, constraints, output format, escalation trigger, and success metric are concrete; scope and handoff are clear to a non-expert reader. |
+| **Screenshot** | **Points: 0** — No screenshot or wrong surface (e.g. chat only); illegible; disallowed format (e.g. Word-only); or GitHub folder/link does not contain what graders need. | **Points: 2** — Evidence present but blurry, cropped so key rules are unreadable, or weak alignment with the described agent; minor format or folder issues. | **Points: 5** — Legible **System instructions** in Google AI Studio (or equivalent per assignment); clearly matches the Agent Card / deployed prompt; submission reachable from the required GitHub folder in allowed formats (PDF or Markdown + images as specified). |
+| **Red team battery** | **Points: 12** — Fewer than five attacks, or missing pasted input / outcome for several attacks, or pass/fail/diagnosis mostly absent or non-specific. | **Points: 22** — All five attacks documented, but diagnosis is thin or repetitive, or some responses lack detail; one attack may be a weak fit to the named pattern but effort is visible. | **Points: 30** — All **five** attack types as specified; each includes pasted (or clearly summarized) input, response, pass/fail, and a **specific** one-line diagnosis tied to behavior, not generic praise or blame. |
+| **Fix and retest** | **Points: 8** — Missing revised prompts or retests; only one failure addressed; or retest results contradict the narrative without acknowledgment. | **Points: 15** — Two failures and revisions attempted; prompt changes or retest notes incomplete or vague, or chosen “failures” are trivial relative to the red team results. | **Points: 20** — Two **distinct** high-risk failures with brief justification; **original and revised** system prompts included; same attacks re-run with honest retest notes (accurate partial fix is fine). |
+| **Reflection** | **Points: 2** — One or both questions missing, extremely short, or boilerplate with no tie to the submission. | **Points: 6** — Both answered but generic or thin; only light connection to documented red team outcomes. | **Points: 10** — Both questions in **two to four sentences** each; reasoning references **this** agent and **these** attacks (hardest defense, trust in escalation, what would change before deploy). |
+
+*If every criterion were scored at the same column: Novice **36**, Competent **71**, Proficient **100**.*
