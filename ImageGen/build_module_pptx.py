@@ -302,12 +302,31 @@ def build_slides(raw_slides: list[dict]) -> list[SlideData]:
         )
         slide.body_lines = _parse_body_lines(slide.body_content)
         slide.table_rows = _parse_table_rows(slide.body_content)
+        # Fallback: LLM often returns null for table_md even when body_content
+        # contains a markdown table. Extract it directly so _gen_table() never
+        # sees None and renders the literal string "None" via pandoc.
+        if not slide.table_md and slide.table_rows:
+            slide.table_md = _extract_table_md(slide.body_content) or None
         tp_text = raw.get("talking_points", "") or ""
         slide.talking_points_raw = tp_text
         slide.talking_points = [
             l.strip() for l in tp_text.splitlines() if l.strip()
         ]
         slides.append(slide)
+
+    # Promote any "Title —" slide to position 0 if it isn't already there.
+    # Handles lessons where the title slide is authored after the Learning
+    # Objectives block in the source file (e.g. M05).
+    title_idx = next(
+        (i for i, s in enumerate(slides)
+         if re.match(r'^title[\s\-—]', s.title, re.IGNORECASE)),
+        None
+    )
+    if title_idx is not None and title_idx > 0:
+        slides.insert(0, slides.pop(title_idx))
+        for i, s in enumerate(slides):
+            s.index = i + 1
+
     return slides
 
 
