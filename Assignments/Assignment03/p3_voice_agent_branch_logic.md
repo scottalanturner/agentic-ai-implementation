@@ -1,28 +1,28 @@
-# P2 — Voice Agent with Branch Logic
+# P3 — Voice Agent with Branch Logic
 
-**Worth:** 15% of final grade  
-**Assigned:** End of Module 4  
-**Due:** Before Module 6  
-**Platform required:** ElevenLabs — [elevenlabs.io](https://elevenlabs.io) (free account)  
+**Worth:** 15% of final grade
+**Assigned:** End of Module 7
+**Due:** Before Module 9
+**Platform required:** ElevenLabs — [elevenlabs.io](https://elevenlabs.io) (free account)
 **Submission:** One PDF or Word document + your ElevenLabs agent share link, uploaded to Blackboard
 
 ---
 
 ## Overview
 
-In P1 you planned an agent and stress-tested it on paper. In P2 you build it — as a live, talking voice agent.
+In Project 1 you planned an agent and stress-tested it on paper. In Project 2 you gave it a memory grounded in source documents. In Project 3 you give it a voice.
 
 This is not a chatbot with audio added. A voice agent reasons about what the user needs, routes the conversation to the right knowledge and instructions for that specific situation, and hands off to a human when it reaches the edge of its competence. The routing is not vague ("the agent can answer many types of questions") — it is explicit: each branch has its own knowledge base, its own instructions, and a defined condition for entering and exiting it.
 
-You will use your P1 Agent Card as the starting point. The same task, the same constraints, the same escalation trigger — now running as a voice conversation in ElevenLabs.
+You will use your Project 1 Agent Card as the starting point. The same task, the same constraints, the same escalation trigger — now running as a voice conversation in ElevenLabs.
 
 ---
 
 ## What You Need Before You Start
 
-- Your P1 Agent Card (you will adapt it, not replace it)
+- Your Project 1 Agent Card (you will adapt it, not replace it)
 - A free ElevenLabs account — [elevenlabs.io/sign-up](https://elevenlabs.io/sign-up). No credit card required. If asked for Google Drive access during setup, decline — you do not need it.
-- Two to three real documents from your workplace or your agent's domain — policies, FAQs, product sheets, onboarding guides, or any content the agent would realistically draw from. One document per branch.
+- Two to three real documents from your workplace or your agent's domain — policies, FAQs, product sheets, onboarding guides, or any content the agent would realistically draw from. One document per branch. (If you used real documents in Project 2, you can reuse them here — though the agent and platform are separate.)
 - 30–40 minutes of focused work time
 
 **ElevenLabs documentation you will want open:**
@@ -38,9 +38,9 @@ You will use your P1 Agent Card as the starting point. The same task, the same c
 
 Before touching ElevenLabs, write your design document. This is the planning artifact that drives everything you build in Parts 2 and 3.
 
-### 1a — Adapt Your P1 Agent Card for Voice
+### 1a — Adapt Your Project 1 Agent Card for Voice
 
-Review your P1 Agent Card. Three things change when an agent operates by voice:
+Review your Project 1 Agent Card. Three things change when an agent operates by voice:
 
 **Tone becomes conversational.** System prompt instructions that read well as text often sound robotic when spoken. Rewrite your Role and Task sections in plain, spoken English — shorter sentences, no bullet points in the spoken output, natural acknowledgment of what the user just said.
 
@@ -66,7 +66,7 @@ For each branch, fill in this table:
 | **Instructions** — what specific behavior applies only in this branch? | | | |
 | **Exit condition** — how does this branch end? (Resolved / Escalated / Return to router) | | | |
 
-**Branch 3 must be your escalation path.** It fires when the user's need exceeds what Branches 1 and 2 can handle. It should correspond directly to the escalation trigger in your P1 Agent Card. Branch 3 does not need a knowledge base — it needs a clear spoken handoff message and an exit.
+**Branch 3 must be your escalation path.** It fires when the user's need exceeds what Branches 1 and 2 can handle. It should correspond directly to the escalation trigger in your Project 1 Agent Card. Branch 3 does not need a knowledge base — it needs a clear spoken handoff message and an exit.
 
 **What makes a good branch split?**
 The branches should differ meaningfully — different knowledge, different tone, different stakes. A good test: if you swapped the knowledge base documents between Branch 1 and Branch 2, the agent would break. If swapping them would not matter, the branches are not distinct enough.
@@ -202,9 +202,9 @@ If you have time, run a fourth test where your opening message is genuinely ambi
 
 After completing your test conversations, answer these two questions in two to four sentences each.
 
-**1. What changed — and what broke — when you moved from a text agent (P1) to a voice agent (P2)?**
+**1. What changed — and what broke — when you moved from a text agent (Project 2) to a voice agent (Project 3)?**
 
-Be specific. Did the escalation trigger sound different when spoken? Did the branch routing feel natural or mechanical? Did the knowledge base perform differently than expected? This is not a general reflection on voice AI — it is about your specific agent.
+Be specific. Did the escalation trigger sound different when spoken? Did the branch routing feel natural or mechanical? Did the knowledge base perform differently than expected? Apply at least one voice-specific metric from Module 7 (word error rate, end-of-turn latency, hallucinated-name rate, refusal precision, or confirmation compliance) and name what you would measure if you had a dashboard.
 
 **2. Your Branch 3 is your last line of defense. After testing, do you trust it?**
 
@@ -216,9 +216,9 @@ Did the escalation fire when it should? Did it fire when it should not have? If 
 
 Your submission is a single PDF or Word document plus your agent share link. The document must contain, in order:
 
-1. **Voice Agent Design Document** — adapted Agent Card, branch table, router description (Part 1)
-2. **Screenshots** — at least two: (a) your agent's system prompt in ElevenLabs, (b) your knowledge base showing the documents you uploaded
-3. **Agent Share Link** — paste the URL at the top of the document, before anything else, so it is easy to find
+1. **Agent Share Link** — paste the URL at the top of the document, before anything else, so it is easy to find
+2. **Voice Agent Design Document** — adapted Agent Card, branch table, router description (Part 1)
+3. **Screenshots** — at least two: (a) your agent's system prompt in ElevenLabs, (b) your knowledge base showing the documents you uploaded
 4. **Three test conversation transcripts** with routing assessment, KB check, and pass/fail (Part 3)
 5. **Voice-specific failure analysis** — both questions answered (Part 4)
 
@@ -228,10 +228,10 @@ Your submission is a single PDF or Word document plus your agent share link. The
 
 | Section | Points | What earns full credit |
 |---------|--------|----------------------|
-| Voice Agent Design Document | 30 | Branch table complete with distinct entry/exit conditions; KB plan matches branches; router logic described; voice adaptations from P1 are specific and explained |
+| Voice Agent Design Document | 30 | Branch table complete with distinct entry/exit conditions; KB plan matches branches; router logic described; voice adaptations from Project 1 are specific and explained |
 | ElevenLabs Build | 20 | Share link works at grading time; system prompt shows branch logic structure; knowledge base documents visible in screenshot; at least two distinct KB documents present |
 | Test Conversations | 35 | All three branches tested; transcripts show routing working; KB activation noted; escalation branch documented; pass/fail diagnosis is specific |
-| Voice Failure Analysis | 15 | Both questions answered with specifics from actual test results — not generic observations |
+| Voice Failure Analysis | 15 | Both questions answered with specifics from actual test results — not generic observations; at least one voice-specific metric named in Question 1 |
 | **Total** | **100** | |
 
 ---
@@ -251,6 +251,6 @@ If you find your agent giving generic answers instead of answers from your docum
 - [RAG in ElevenLabs](https://elevenlabs.io/docs/conversational-ai/customization/knowledge-base/rag)
 - [Deploying enterprise knowledge to voice agents](https://elevenlabs.io/blog/deploying-enterprise-knowledge-to-voice-agents) — ElevenLabs blog post on knowledge base best practices
 - [ElevenLabs free tier sign-up](https://elevenlabs.io/sign-up)
-- Your P1 Agent Card — required starting point for Part 1
-- M04 lesson slides — RAG pipeline, document quality, retrieval failure modes
-- M07 lesson slides — voice agent design, spoken UX, IVR patterns
+- Your Project 1 Agent Card — required starting point for Part 1
+- Module 4 lesson slides — RAG pipeline, document quality, retrieval failure modes
+- Module 7 lesson slides — voice agent design, voice-specific metrics, voice risk surface

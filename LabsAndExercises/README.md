@@ -55,4 +55,11 @@ This is a working index. Activities continue to be developed, revised, and re-se
 
 ---
 
-*Modules 6 through 12 will be added as their activities are developed.*
+## Module 7 — Give Your Agent a Voice
+
+- **`m07_activity_1_voice_model_shootout.md`** — Compare OpenAI and Gemini voice/realtime model options in their live playgrounds, then recommend which model path best fits a specific voice-agent use case.
+- **`m07_activity_2_try_to_break_support_agent.md`** — Safely red-team the ElevenLabs public support agent demo, then identify the strongest guardrail finding and recommend one improvement.
+
+---
+
+*Modules 6 and 8 through 12 will be added as their activities are developed.*
