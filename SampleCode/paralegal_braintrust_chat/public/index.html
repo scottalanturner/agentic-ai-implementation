@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paralegal practice assistant (demo)</title>
+  <style>
+    :root {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a1a;
+      line-height: 1.45;
+    }
+    body { max-width: 42rem; margin: 0 auto; padding: 1.25rem; }
+    h1 { font-size: 1.15rem; font-weight: 650; margin: 0 0 0.35rem; }
+    .sub { font-size: 0.85rem; color: #444; margin: 0 0 1rem; }
+    .hint {
+      font-size: 0.8rem; color: #333; background: #fff; border: 1px solid #d8dee6;
+      border-radius: 8px; padding: 0.65rem 0.75rem; margin-bottom: 1rem;
+    }
+    .capture-box {
+      font-size: 0.78rem; color: #1b3d1b; background: #e8f5e9; border: 1px solid #a5d6a7;
+      border-radius: 8px; padding: 0.65rem 0.75rem; margin-bottom: 1rem; line-height: 1.5;
+    }
+    .capture-box code { font-size: 0.85em; background: rgba(255,255,255,.7); padding: 0.1em 0.35em; border-radius: 4px; }
+    #log {
+      background: #fff; border: 1px solid #d8dee6; border-radius: 10px;
+      padding: 0.75rem; min-height: 14rem; max-height: 50vh; overflow-y: auto;
+      margin-bottom: 0.75rem; font-size: 0.9rem;
+    }
+    .msg { margin-bottom: 0.75rem; white-space: pre-wrap; word-break: break-word; }
+    .msg.user strong { color: #0d47a1; }
+    .msg.bot strong { color: #1b5e20; }
+    .msg.note { font-size: 0.82rem; color: #2e7d32; margin-bottom: 0.75rem; padding: 0.35rem 0.5rem; background: #f1f8e9; border-radius: 6px; }
+    .msg.note.warn { color: #b71c1c; background: #ffebee; }
+    .row { display: flex; gap: 0.5rem; align-items: flex-end; }
+    textarea {
+      flex: 1; min-height: 3.2rem; max-height: 8rem; padding: 0.5rem 0.6rem;
+      border-radius: 8px; border: 1px solid #b0bec5; font: inherit; resize: vertical;
+    }
+    button {
+      padding: 0.55rem 1rem; font-weight: 600; border: none; border-radius: 8px;
+      background: #1565c0; color: #fff; cursor: pointer; font-size: 0.9rem;
+    }
+    button:disabled { opacity: 0.55; cursor: not-allowed; }
+    .err { color: #b71c1c; font-size: 0.85rem; margin-top: 0.35rem; }
+  </style>
+</head>
+<body>
+  <h1>Litigation paralegal assistant</h1>
+  <p class="sub">Mock docket + e-filing + conflict screen. Traced to Braintrust from the server.</p>
+  <div class="capture-box">
+    <strong>/capture</strong> — Start your message with <code>/capture</code> (then a space) to save <em>this turn</em> to the
+    Braintrust dataset <code>live-captures</code> (or the name in <code>BRAINTRUST_CAPTURE_DATASET</code> in <code>.env</code>).
+    The assistant does not see the word <code>/capture</code>; only your question is sent to the model. Use it in class to
+    promote a good example into a dataset for later evals. If capture fails, check the red error line below or the server console.
+  </div>
+  <div class="hint">
+    Try: “What’s next for the Harbor Freight matter?” · “Status of filing EF-88402?” ·
+    “Conflict check for Riley Vale at Briggs &amp; Vale.”
+  </div>
+  <div id="log" aria-live="polite"></div>
+  <div class="row">
+    <textarea id="input" rows="2" placeholder="Message… (use /capture then your question to save this turn to a Braintrust dataset)"></textarea>
+    <button type="button" id="send">Send</button>
+  </div>
+  <p id="err" class="err" role="alert"></p>
+  <script src="/app.js"></script>
+</body>
+</html>

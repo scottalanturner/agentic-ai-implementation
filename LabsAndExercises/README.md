@@ -62,4 +62,10 @@ This is a working index. Activities continue to be developed, revised, and re-se
 
 ---
 
-*Modules 6 and 8 through 12 will be added as their activities are developed.*
+## Module 10 — Shipping Agents Without Getting Fired
+
+- **`m10_activity_1_version_a_prompt_in_github.md`** — Write a prompt to a plain text file, upload it to a new GitHub repository, revise the prompt, update the file on GitHub, and read version history — all in the browser, no command line. Introduces repositories, commits, and why versioned prompts matter for AgentOps.
+
+---
+
+*Additional modules will be indexed here as their activities are developed.*
