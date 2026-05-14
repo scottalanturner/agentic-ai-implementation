@@ -23,14 +23,13 @@ This is also the first half of a two-stage build. In Project 4, you will extend 
 - A Notion account on the free tier — sign up at [notion.com](https://www.notion.com) if you don't already have one
 - **Three to five real documents from your workplace or your agent's domain** — policies, FAQs, onboarding guides, product sheets, project notes, or anything the agent would realistically draw from. Real content beats placeholder content every time — the failure modes you will study in Part 3 only appear when documents are ambiguous or incomplete.
 - A way to capture screenshots — built-in OS shortcuts work fine
-- 45–60 minutes of focused work time
 
 **Notion documentation you will want open:**
 
 - [Notion AI overview](https://www.notion.com/help/notion-ai) — what Notion's agent can do
 - [Notion Q&A](https://www.notion.com/help/notion-ai-faqs) — how Notion's agent answers questions from your workspace
 
-**Navigation tip:** Notion updates its interface frequently. If a menu item is not where this document says it is, take a screenshot and ask Claude or ChatGPT: *"I'm in Notion trying to [do X]. Here's what my screen looks like — where do I find it?"* This is a legitimate skill in a field where tools update weekly.
+**Navigation tip:** Notion updates its interface frequently. If a menu item is not where this document says it is, take a screenshot and ask Claude or ChatGPT: *"I'm in Notion trying to [do X]. Here's what my screen looks like — where do I find it?"* This is a legitimate skill in a field where tools change often.
 
 ---
 

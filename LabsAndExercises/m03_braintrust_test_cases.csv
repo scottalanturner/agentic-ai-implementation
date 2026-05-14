@@ -1,0 +1,6 @@
+input,expected
+"I was charged twice for my subscription this month, and I need the duplicate charge refunded before my rent comes out on Friday.","Urgency: High — The customer was double-charged and has a money deadline this week."
+"The export-to-PDF button doesn't work in Safari, but it works fine when I switch to Chrome.","Urgency: Medium — A feature is broken, but the customer has a working workaround."
+"Just wanted to say the new dashboard looks great. One small thing — the font on the settings page feels a little small.","Urgency: Low — This is positive feedback plus a minor cosmetic suggestion."
+"Our whole team of 40 people has been locked out of the platform since this morning, and we have a client demo at 2pm.","Urgency: High — An entire team cannot access the product and a deadline is at stake."
+"How do I change the email address on my account? I looked in settings but couldn't find it.","Urgency: Low — This is a how-to question with nothing broken."
