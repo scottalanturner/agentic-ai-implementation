@@ -1,7 +1,7 @@
 # P2 — Knowledge Agent in Notion
 
 **Platform required:** Notion — [notion.com](https://www.notion.com) (free tier is sufficient)
-**Submission:** One PDF or Word document uploaded to Blackboard, including the screenshots described in [Submission Requirements](#submission-requirements) below
+**Submission:** One README.md file uploaded to GitHub in a new Assignment folder. The README should include the screenshots described in [Submission Requirements](#submission-requirements) below. (Screenshots must be added to GitHub).
 
 ---
 
@@ -209,7 +209,7 @@ Did the agent refuse the out-of-scope question? Did it refuse anything it should
 
 ## Submission Requirements
 
-Your submission is a single PDF or Word document uploaded to Blackboard. The document must contain, in order:
+Your submission is a single README.md added to your GitHub project folder. The document must contain, in order:
 
 1. **Agent Design Document** — adapted Agent Card, knowledge source table, refusal criteria (Part 1)
 2. **Build screenshots** — three required:
@@ -218,8 +218,6 @@ Your submission is a single PDF or Word document uploaded to Blackboard. The doc
     - **Screenshot 3:** Agent instructions field showing your saved system prompt (Part 2, Step 4)
 3. **Five test conversations** — each one documented in the table format **and** accompanied by a screenshot of the actual conversation in Notion (Part 3)
 4. **Grounding failure analysis** — both questions answered (Part 4)
-
-**Grading rubric:** see [rubric.md](rubric.md).
 
 ---
 
@@ -231,11 +229,6 @@ If your agent gives a generic-sounding answer when it should be quoting your sou
 
 ---
 
-## A Note on What Comes Next
-
-Project 4 will extend this same agent with tools and a full governance audit. The agent you build here is the foundation for that work — keep your Notion workspace, your agent, and your sources intact between Projects 2 and 4. Do not delete your sources or your agent when you submit.
-
----
 
 ## Resources
 
