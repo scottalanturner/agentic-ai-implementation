@@ -118,8 +118,10 @@ Once your Agent Card is complete, you will convert it into a working system prom
 **Setup steps:**
 
 1. Go to [aistudio.google.com](https://aistudio.google.com) and sign in with your Google account. If a permissions prompt appears asking for Google Drive access, click **No thanks** — you do not need it.
-2. Click **Create new prompt** → select **Chat prompt**.
-3. You will see two areas: a **System instructions** panel on the left, and a **chat window** on the right.
+2. Click Playground in the left pane.
+2. Click Code and Chat in the middle of the screen.
+2. Click the Gemini 3.1 Flash Lite model
+3. You will see two areas: a **System instructions** panel on the RIGHT, and a **chat window** on the BOTTOM.
 4. In the **System instructions** panel, paste your agent's role, task, constraints, output format, and escalation trigger — written as direct instructions to the model. Use the SOP structure from M02 Activity 3 as your guide.
 5. Set the model to **Gemini 1.5 Flash** (free tier, fast, appropriate for this task).
 6. Take a screenshot of the System Instructions panel with your prompt visible. Include it in your submission as described under [Submission Requirements](#submission-requirements): for example, a separate image file in the same GitHub folder, embedded in your PDF, or referenced from your markdown file with a relative path.
