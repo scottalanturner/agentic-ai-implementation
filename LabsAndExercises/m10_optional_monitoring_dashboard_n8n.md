@@ -1,8 +1,10 @@
-# Activity: Read the Monitoring Dashboard in n8n
+# Optional: Read the Monitoring Dashboard in n8n
 
-**Format:** In-class activity — solo
-**Time:** 12–15 minutes
+**Format:** Optional self-paced practice — solo
+**Time:** 15–20 minutes
 **Requires:** A web browser · The free n8n account you created in Module 5
+
+> This is an optional, self-paced practice activity — it is not run in class. If you want hands-on time with what "monitoring" actually looks like on an agent you already built, this is the cheapest version of the discipline. You will see the difference between a run that **errored** and a run that "succeeded" but produced a **bad answer** — and why surface monitoring misses the second one.
 
 ---
 
