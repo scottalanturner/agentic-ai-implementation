@@ -170,18 +170,6 @@ This is the core lesson: **versioning** means you can answer “what did we tell
 
 ---
 
-## What to Submit
-
-Follow your instructor’s channel (Canvas, Slack, etc.). Unless they specify otherwise, submit **both** of the following:
-
-1. **A link** to your GitHub **repository** (the page that lists `my_agent_prompt.txt`), **or** a link directly to the file — either is usually fine.  
-2. **Three short sentences** answering:  
-   - What did you **change** between version 1 and version 2?  
-   - What is one situation at work (or in school) where **remembering old versions** of a prompt would matter?  
-   - What was the **most confusing** click on GitHub — and what would you tell a classmate about that screen?
-
----
-
 ## Connection to Module 10
 
 Shipped agents drift, get “tweaked,” and break in subtle ways. Keeping prompts (and later, configuration) in a system with **dated commits** and **human-readable messages** is a basic **AgentOps** habit: you are not proving you are a developer; you are proving you can **run the agent like an operation**, not like a one-off chat.

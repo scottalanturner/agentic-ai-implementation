@@ -239,7 +239,7 @@ You have three fallback options, in order of effort:
 
 2. **Use your own OpenAI API key.** This requires a credit card. Go to [platform.openai.com](https://platform.openai.com) → **API keys** → **Create new secret key** → copy it. Add at least $5 of credit at **Billing**. In n8n, create a new OpenAI credential and paste your key. The activity uses pennies of credit.
 
-3. **Skip the build, watch a recorded run.** If the technical setup is blocking you for more than 20 minutes, document what went wrong (a screenshot of the error helps), then watch the recorded walkthrough linked in the LMS module. You can still answer the two reflection questions based on the recorded trace.
+3. **Skip the build, watch a recorded run.** If the technical setup is blocking you for more than 20 minutes, document what went wrong, then watch the recorded walkthrough linked in the LMS module. You can still answer the two reflection questions based on the recorded trace.
 
 ### "My workflow ran but the agent's answer is empty or weird."
 - Click on the AI Agent node and look at the **Logs**. If you see a quota or rate-limit error, your free credits may be exhausted — switch to one of the fallback options above.
@@ -250,7 +250,7 @@ You have three fallback options, in order of effort:
 - Make sure the Chat Trigger node is connected to the AI Agent (you should see an arrow between them).
 
 ### "The agent gives a wrong answer for the populations."
-That's actually fine for this activity. The number Wikipedia returns can vary by article phrasing, and the agent's math depends on which numbers it extracted. **The point of the activity is the routing trace, not the population accuracy.** Your screenshot of the trace is what matters.
+That's actually fine for this activity. The number Wikipedia returns can vary by article phrasing, and the agent's math depends on which numbers it extracted. **The point of the activity is the routing trace, not the population accuracy.**
 
 ---
 

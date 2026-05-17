@@ -99,15 +99,6 @@ You don't need full sentences in each cell. A phrase is fine. The point is to se
 
 ---
 
-## Deliverable
-
-1. The one-page comparison table — all three rows filled.
-2. **One sentence** at the bottom of the page describing what you noticed about confidence vs. correctness in the two answers.
-
-Bring both to the debrief (or post them in the discussion thread if you're working async).
-
----
-
 ## Reflection Questions
 
 Answer these before the debrief — even one line each is fine:

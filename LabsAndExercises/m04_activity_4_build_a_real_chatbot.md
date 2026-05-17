@@ -109,14 +109,6 @@ You don't have to actually embed it anywhere. The point is to *have* it. That sn
 
 ---
 
-## Deliverable
-
-A working Chatbase agent that answers at least one question correctly, plus the chat URL and the embed snippet saved in a scratch document.
-
-The bot doesn't have to be polished. It has to exist.
-
----
-
 ## Reflection Questions
 
 Answer these in your head before the debrief — we'll talk through a few of them together:

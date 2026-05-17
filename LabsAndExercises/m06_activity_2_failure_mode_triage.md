@@ -127,12 +127,6 @@ The field is clearly visible on the form. The agent is not throwing an error —
 
 ---
 
-## Deliverable
-
-Submit all four completed triage worksheets.
-
----
-
 ## Reflection Questions
 
 Answer these after completing all four scenarios:

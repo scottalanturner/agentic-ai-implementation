@@ -92,17 +92,6 @@ Now run your task. Use the same observation log format as Part 1:
 
 ---
 
-## Deliverable
-
-Submit the following:
-
-1. **Your completed Part 1 observation log** (the pricing research task)
-2. **Your task design worksheet** (the three pre-run questions)
-3. **Your completed Part 2 observation log** (your own task)
-4. **One paragraph** — no more than 150 words — answering this question: Based on what you saw, is the task you designed in Part 2 a good fit for browser automation, a bad fit, or somewhere in the middle zone? Use the three deployment questions from the module (Is there an API? Is it reversible? What does one mistake cost?) to frame your answer.
-
----
-
 ## Reflection Questions
 
 Answer these after completing both parts:

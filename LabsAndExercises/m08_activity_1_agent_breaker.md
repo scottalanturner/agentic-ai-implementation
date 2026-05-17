@@ -77,23 +77,6 @@ When you run it on Level 1, the agent has no special defenses — only its syste
 7. Go back to the Agent Breaker home and pick a *different* app — anything that looks interesting. Glance at the attack objective for that app before you start (it's listed at the top of each one). Objectives vary: some are about extracting tools, some about toxic-language injection, some about tricking the agent into sending an email it shouldn't.
 8. Spend about ten minutes attacking that second app. Try at least three different prompts. **Do not look up exploits online during this step** — the goal is your own thinking, not somebody else's working attack.
 
-### Step 4 — Capture something
-
-Screenshot your single best attempt (whether it worked or not). "Best" can mean highest score, most surprising response, or the one you found most informative.
-
----
-
-## Deliverable
-
-A short write-up — about ten sentences total — covering:
-
-1. **The first agent you attacked** (Cycling Coach), and what changed between Level 1 and Level 2 when you used the worked example
-2. **The second agent you chose**, what its attack objective was, and what *you* tried
-3. **One bullet per attempt** for your three prompts on the second agent: what you tried, what the agent did, and your score
-4. **Which Module 8 concept this maps to** — pick one: a leg of the Lethal Trifecta, a specific mitigation (allowlist, output filter, human gate, read-only first, separate channels), or one of the four threat classes (injection, tool abuse, over-permissioning, data leakage)
-
-Attach the screenshot.
-
 ---
 
 ## Reflection Questions

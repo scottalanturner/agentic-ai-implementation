@@ -56,7 +56,7 @@ Same rule as the Agent Breaker activity:
 
 > **You are not expected to build a perfect agent or stop every attack.** Most of what you build in this lab will leak data the first time you query it. That is the lesson. The point is to *experience* how casually a default RAG setup hands over the contents of a file, and to *feel* the difference when you add a single guardrail.
 >
-> If you can't get Flowise to run, can't get the LLM connected, or run out of time before adding a guardrail, capture what you did manage to do and submit that. The thinking is the deliverable.
+> If you can't get Flowise to run, can't get the LLM connected, or run out of time before adding a guardrail, you will still learn from what you managed to build. The thinking and the experience are what matter.
 
 ---
 

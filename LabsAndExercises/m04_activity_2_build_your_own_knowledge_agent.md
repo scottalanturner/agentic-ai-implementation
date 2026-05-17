@@ -122,16 +122,6 @@ Example: *"The synthesis question only cited Source A because the relevant parag
 
 ---
 
-## Deliverable
-
-Bring three things to the debrief:
-
-1. A working NotebookLM notebook with three sources loaded
-2. Your five-row scoring table (question, answer, score, source(s) cited)
-3. One sentence on the chunking or retrieval moment you noticed
-
----
-
 ## Reflection Questions
 
 Answer these before the debrief:

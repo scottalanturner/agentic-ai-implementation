@@ -79,13 +79,9 @@ Here is the key observation: **run 4 may show "succeeded" in the dashboard even 
 
 ---
 
-## Step 5 — Screenshot and reflect (about 3 minutes)
+## Step 5 — Reflect (about 3 minutes)
 
-Take one screenshot:
-
-- Your **Executions view** showing the run history
-
-Then answer these two questions in a few sentences each:
+Answer these two questions in a few sentences each:
 
 **1. Which one metric would you alert on?**
 If this agent were live and you could only watch *one* number — run time, error rate, number of tool calls per run, something else — which would you pick, and what would the alarm threshold be? Why that one?
@@ -95,9 +91,9 @@ Run 4 may have shown "succeeded." Name one thing that could go wrong with a live
 
 ---
 
-## Debrief
+## Reflection
 
-Be ready to share your Executions screenshot and your answer to question 1. The debrief connects to the slide that comes next — *Pick the metric that matters* — and to the idea of **behavioral drift**: the agent that keeps showing "succeeded" while quietly getting worse.
+Think about your answer to question 1. The concepts here connect to the slide that comes next — *Pick the metric that matters* — and to the idea of **behavioral drift**: the agent that keeps showing "succeeded" while quietly getting worse.
 
 ---
 

@@ -134,23 +134,6 @@ You just rendered two of the five lesson patterns side by side, in the same crew
 
 ---
 
-## Step 8 — Take Screenshots and Reflect (3 min)
-
-Take **two screenshots:**
-
-1. The **canvas** showing your crew (with the process type visible in the settings, if possible)
-2. The **execution timeline** showing at least one agent's output
-
-Then answer the **four reflection questions** below.
-
----
-
-## Deliverable
-
-- **Two screenshots** (canvas + execution timeline)
-- **One note** stating which scenario you chose (A, B, C, or your own) and which process the AI Copilot picked first
-- **Written answers** to all four reflection questions
-
 ---
 
 ## Reflection Questions

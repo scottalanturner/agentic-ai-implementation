@@ -160,12 +160,6 @@ One sentence. Name the setting, name the document, name who shouldn't see it.
 
 ---
 
-## Deliverable
-
-Submit the completed five-row diagnostic table plus the one-sentence wrong-access reflection.
-
----
-
 ## Reflection Questions
 
 Answer these before the debrief:
