@@ -1,6 +1,6 @@
 # Activity: MCP Server Evaluation — Find, Read, and Assess
 
-**Module 5 | Estimated time: 15 minutes | Solo activity**
+**Module 5 | Estimated time: 15 minutes**
 
 ---
 
@@ -94,13 +94,3 @@ Here is an example of a completed assessment for the **Slack MCP server**, to sh
 > The Slack MCP server gives an AI agent the ability to read messages from channels, send messages, create channels, and look up user profiles. That means an agent connected to Slack has access to potentially sensitive internal conversations — including discussions about personnel, strategy, clients, and finances — depending on which channels it can read. Any content from those channels that the agent references becomes part of the context sent to the underlying language model, which may be hosted outside the organization's environment. The worst-case blast radius includes: an agent posting a confusing or incorrect message to a public channel at scale, leaking a private conversation by referencing it in a response to the wrong person, or being manipulated through a malicious message in a channel it monitors (prompt injection). Before I'd recommend connecting this server, I'd want to see: channel-level access controls (not org-wide read access), message-send limited to designated channels only, full audit logging of every action, and a clear human review step before any message goes out to more than one person.
 
 ---
-
-## What to Do With Your Assessment
-
-Hold on to this paragraph. You may be asked to share it during class discussion or submit it as part of a module check-in.
-
-If you want to go further: pick a second server from a different category (e.g., a file storage server if you evaluated a messaging server) and note how the risk profile changes.
-
----
-
-*Activity for Module 5 — ISYS 398U Agentic AI Implementation | University of Richmond SPCS*

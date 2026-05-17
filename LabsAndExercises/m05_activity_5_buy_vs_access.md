@@ -1,6 +1,6 @@
 # Activity: Procurement Strategy — Buy AI Access or Buy AI Embedded?
 
-**Module 5 | Estimated time: 10–12 minutes | Solo activity**
+**Module 5 | Estimated time: 10–12 minutes**
 
 ---
 
@@ -104,13 +104,3 @@ Here is a completed answer for **Question 1 only** — to model the expected dep
 > If we buy SalesForge AI Pro, we're not just buying features — we're handing the vendor ongoing access to our sales data as training material. The AI "learns our team's patterns" using our deal history, our email language, our pipeline behavior. That learning lives inside SalesForge's infrastructure, not ours. If we switch CRMs in two years, we'd be starting from scratch with a new AI that knows nothing about how our team works. More importantly, we'd be walking away from the value we created — every pattern the model learned, every workflow it refined — because we never owned any of it. We also don't know what SalesForge does with those learned patterns at the platform level: do they use aggregate customer data to improve the product for all customers? The pitch doesn't say. Before signing, I'd want to know exactly what data the AI is trained on, where that training data lives, who owns it contractually, and what we get (if anything) if we cancel.
 
 ---
-
-## What to Do With Your Answers
-
-Hold on to your completed analysis. You may be asked to share part of it during class discussion or submit it as part of a module check-in.
-
-If you want to go further: find a real vendor pitch for an AI-enhanced software product — a tool you already use, a newsletter you follow, or a company you've researched. Run the same three questions against that pitch.
-
----
-
-*Activity for Module 5 — ISYS 398U Agentic AI Implementation | University of Richmond SPCS*

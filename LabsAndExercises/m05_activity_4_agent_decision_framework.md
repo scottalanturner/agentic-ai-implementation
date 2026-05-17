@@ -1,6 +1,6 @@
 # Activity: Agent Decision Framework — Should This Task Be Delegated?
 
-**Module 5 | Estimated time: 10–12 minutes | Solo activity**
+**Module 5 | Estimated time: 10–12 minutes**
 
 ---
 
@@ -101,12 +101,3 @@ Here is a completed row for **Scenario 1** to show you what level of analysis is
 
 ---
 
-## What to Do With Your Table
-
-Hold on to your completed table. You may be asked to share one or two of your assessments during class discussion or submit the table as part of a module check-in.
-
-If you want to go further: think about a task from your own work, internship, organization, or a company you know. Run it through the same framework and add it as a sixth row.
-
----
-
-*Activity for Module 5 — ISYS 398U Agentic AI Implementation | University of Richmond SPCS*

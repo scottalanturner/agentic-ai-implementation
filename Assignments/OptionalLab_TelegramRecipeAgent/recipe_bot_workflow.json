@@ -1,0 +1,247 @@
+{
+  "name": "Recipe Bot",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "trig-telegram-001",
+      "name": "When user texts the bot",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        240,
+        240
+      ],
+      "webhookId": "recipe-bot-telegram-webhook",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  \"model\": \"meta-llama/llama-3.3-70b-instruct:free\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"The user just told me what's in their pantry. Extract every food item as a simple list, one item per line. No commentary, no introduction, no closing remarks — just the bare list of items.\\n\\nWhat they said: \" + $json.message.text\n    }\n  ]\n}) }}",
+        "options": {}
+      },
+      "id": "http-clean-pantry-001",
+      "name": "Ask Llama to clean the pantry",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        460,
+        240
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Save the cleaned pantry list into the workflow's memory\n// so the morning recipe path can read it later.\nconst pantryText = $input.first().json.choices[0].message.content;\nconst staticData = $getWorkflowStaticData('global');\nstaticData.pantry = pantryText;\n\nreturn [{ json: { pantry: pantryText } }];"
+      },
+      "id": "code-save-pantry-001",
+      "name": "Save the pantry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        680,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('When user texts the bot').item.json.message.chat.id }}",
+        "text": "=✅ Pantry saved! Here's what I have on your list:\n\n{{ $json.pantry }}\n\nText me any time to update it. I'll send you a recipe tomorrow morning at 7 a.m.",
+        "additionalFields": {}
+      },
+      "id": "tg-reply-001",
+      "name": "Reply to the user",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        240
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 7,
+              "triggerAtMinute": 0
+            }
+          ]
+        }
+      },
+      "id": "trig-schedule-001",
+      "name": "Every morning at 7am",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        240,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Read the saved pantry list out of the workflow's memory.\nconst staticData = $getWorkflowStaticData('global');\nconst pantry = staticData.pantry || 'No pantry items saved yet. Text your bot a pantry list first.';\n\nreturn [{ json: { pantry: pantry } }];"
+      },
+      "id": "code-load-pantry-001",
+      "name": "Load the saved pantry",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        460,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({\n  \"model\": \"meta-llama/llama-3.3-70b-instruct:free\",\n  \"messages\": [\n    {\n      \"role\": \"user\",\n      \"content\": \"You are a friendly home cook. Suggest one simple recipe I can make today using items from my pantry. Keep the steps short and practical.\\n\\nFormat your reply exactly like this:\\n🍳 [Recipe Name]\\n\\nIngredients I have:\\n- ...\\n\\nSteps:\\n1. ...\\n2. ...\\n\\nMy pantry: \" + $json.pantry\n    }\n  ]\n}) }}",
+        "options": {}
+      },
+      "id": "http-recipe-001",
+      "name": "Ask Llama for a recipe",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        680,
+        540
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "PASTE_YOUR_TELEGRAM_USER_ID_HERE",
+        "text": "={{ $json.choices[0].message.content }}",
+        "additionalFields": {}
+      },
+      "id": "tg-send-recipe-001",
+      "name": "Send the morning recipe",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        900,
+        540
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": ""
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When user texts the bot": {
+      "main": [
+        [
+          {
+            "node": "Ask Llama to clean the pantry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask Llama to clean the pantry": {
+      "main": [
+        [
+          {
+            "node": "Save the pantry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save the pantry": {
+      "main": [
+        [
+          {
+            "node": "Reply to the user",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every morning at 7am": {
+      "main": [
+        [
+          {
+            "node": "Load the saved pantry",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Load the saved pantry": {
+      "main": [
+        [
+          {
+            "node": "Ask Llama for a recipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ask Llama for a recipe": {
+      "main": [
+        [
+          {
+            "node": "Send the morning recipe",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}

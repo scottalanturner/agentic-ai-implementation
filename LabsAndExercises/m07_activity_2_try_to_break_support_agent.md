@@ -1,6 +1,6 @@
 # Activity: Try to Break the Support Agent
 
-**Format:** In-class activity - solo  
+**Format:** In-class activity 
 **Time:** 20-25 minutes  
 **Requires:** Web browser · microphone access · ElevenLabs support demo · Claude, ChatGPT, Gemini, or another language model
 

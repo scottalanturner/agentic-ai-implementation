@@ -1,6 +1,6 @@
 # Activity: Build a Tool-Calling Agent in n8n
 
-**Format:** In-class activity — solo  
+**Format:** In-class activity
 **Time:** 20–25 minutes  
 **Requires:** A web browser · Free n8n account (created during this activity)
 

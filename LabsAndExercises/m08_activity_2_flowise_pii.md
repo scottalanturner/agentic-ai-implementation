@@ -184,18 +184,6 @@ Note which prompts now refuse, which still leak, and which leak *partially*.
 
 ---
 
-## Deliverable
-
-A short write-up — about twelve to fifteen sentences total — with:
-
-1. **Before the guardrail:** which of the ten prompts produced sensitive output? Note the prompt number and one line on what came out (e.g., *"Prompt 5 — gave full SSN, address, and DOB for Vera Iglesias"*)
-2. **After the guardrail:** which prompts now refuse, and which still leak something the guardrail was supposed to block?
-3. **One prompt that surprised you** — describe it and why
-4. **One bullet** mapping the experience to Module 8: which threat class did you just simulate, and which mitigation from the Data Leakage — Mitigations slide *would* have helped (and which would not)?
-
-Attach **two screenshots**: one chat response from before the guardrail (showing leakage), one from after (showing refusal *or* showing the leak the guardrail missed).
-
----
 
 ## Reflection Questions
 

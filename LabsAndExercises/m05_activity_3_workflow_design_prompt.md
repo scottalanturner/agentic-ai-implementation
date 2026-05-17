@@ -158,12 +158,6 @@ Once ChatGPT has produced the full A–H document (including the workflow image)
 
 4. **Real deployment:** If you were actually handed this design and told to implement it next quarter, what would be the first thing you'd need to verify before writing a line of code or making a single API connection?
 
----
-
-## What to Submit
-
-Save or copy the full A–H output ChatGPT produced (include the workflow image — e.g., download it from ChatGPT and attach it, or paste a link if your workflow allows), along with your four reflection answers. You may be asked to share during class discussion or submit both as a single document.
-
 
 ---
 
@@ -172,5 +166,3 @@ Save or copy the full A–H output ChatGPT produced (include the workflow image 
 ChatGPT can generate diagram-style images from your workflow description (look for image or “create an image” options in the interface, which may depend on your account and region). If the first image is too busy or misses a handoff, ask for a simpler version or a second image focused on one slice of the flow. Treat the image as a communication artifact for stakeholders, not as an executable specification — your text sections (especially wiring and governance) remain the source of truth.
 
 ---
-
-*Activity for Module 5 — ISYS 398U Agentic AI Implementation | University of Richmond SPCS*
