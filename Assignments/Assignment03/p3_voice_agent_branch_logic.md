@@ -89,25 +89,36 @@ The router does not need to be complex. One greeting, one routing question, thre
 
 ## Part 2 — Build the Voice Agent in ElevenLabs
 
-### Step 1 — Create Your Agent
+### Step 1 — Create Your Agent and Write a Slim System Prompt
 
-1. Go to [elevenlabs.io](https://elevenlabs.io) and sign in.
-2. In the left navigation, find **Agents** (may also appear as **Conversational AI** depending on your interface version).
-3. Click **Create agent** or **New agent**. Choose a blank template.
-4. Give your agent a name that matches its purpose.
-5. In the **System prompt** or **Agent instructions** field, paste your adapted voice SOP from Part 1a. This is the agent's global instructions — the router logic and shared constraints live here.
+1. Go to [elevenlabs.io/app/agents](https://elevenlabs.io/app/agents) and sign in.
+2. In the left navigation, under the **Agents** heading, click the **+** icon (tooltip: *Create an agent*).
+3. A "New agent" modal appears with three options: **Personal Assistant**, **Business Agent**, and **Blank Agent**. Choose **Blank Agent**.
+4. A second modal — "Complete your agent" — appears. Enter an **Agent Name** that matches your agent's purpose (50 character limit). Leave the *Chat only* and *Procedures* toggles off. Click **Create Agent**.
+5. You land on the per-agent view. The left nav now shows agent-scoped items: **Agent**, **Workflow**, **Branches**, **Knowledge Base**, **Analysis**, **Tools**, **Widget**, **Settings**.
+6. You are on the **Agent** tab by default. Find the **System prompt** field in the upper-left of the page. The default content reads "You are a helpful assistant." — select all of it and replace it with a *slim* shared-role prompt: who the agent is, the conversational tone you want everywhere, and any rules that apply across every branch (for example: never ask for passwords).
+
+   **Do not put routing logic or per-branch instructions here.** Those go in individual workflow nodes in Step 3. A good system prompt at this stage is two to four sentences.
+
+7. Just below the system prompt is a **First message** field — the line the agent speaks first. Keep it broad enough to cover every branch you plan to build (a security-only greeting will confuse callers who want an order lookup).
+
+> **What's already configured for you:** on the right side of the Agent tab, ElevenLabs has pre-selected a voice (Eric — Smooth, Trustworthy) and an LLM (Gemini 2.5 Flash). You'll change the voice in Step 4. The LLM choice can stay as-is unless you have a reason to change it.
 
 ---
 
-### Step 2 — Build Your Branch 2 Knowledge Base
+### Step 2 — Create Your Branch 2 Knowledge Base Document
 
-ElevenLabs lets you attach knowledge base documents directly to your agent. Each document you add becomes a source the agent can retrieve from during a conversation.
+You will *upload* the knowledge base document now and *attach* it to the right branch node in Step 3. Doing it in two steps mirrors how ElevenLabs is structured: documents live in a shared library, then individual nodes pull from them.
 
-1. Find the **Knowledge base** section in your agent settings. ([Documentation](https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base))
-2. Add your Branch 2 document — this can be a file upload, a URL, or text pasted directly.
-3. Name the knowledge base entry clearly — you will reference it in your Branch 2 instructions.
+1. In the left navigation (per-agent view), click **Knowledge Base**. ([Documentation](https://elevenlabs.io/docs/eleven-agents/customization/knowledge-base))
+2. Click **Add document** in the top right. A dropdown appears with three buttons at the bottom: **Add URL**, **Add Files**, and **Create Text**. Pick the one that matches your source:
+   - **Create Text** — paste your document content directly. Easiest path if your KB content is already written. You'll be prompted for a **Text Name** and **Text Content**.
+   - **Add Files** — upload a `.txt`, `.md`, `.pdf`, or `.docx` file from your computer.
+   - **Add URL** — point the agent at a public web page.
+3. Name the knowledge base entry clearly — you'll reference it by name when you attach it to a node.
+4. Click **Create Text** (or the equivalent confirm button for the option you picked). The document now appears in the per-agent Knowledge Base list.
 
-Branch 1 is powered by a tool, not a document — you will add that in Part 3. Branch 3 needs neither.
+Branch 1 is powered by a tool, not a document — you'll add that in Part 3. Branch 3 needs neither.
 
 **What makes a good knowledge base document for a voice agent?**
 
@@ -118,44 +129,71 @@ Branch 1 is powered by a tool, not a document — you will add that in Part 3. B
 
 ---
 
-### Step 3 — Encode Branch Logic in Your System Prompt
+### Step 3 — Build the Branches Visually in the Workflow Builder
 
-ElevenLabs' conversation flow builder may or may not be available on the free tier depending on your interface version. Either way, the most reliable method for this assignment is to encode your branch logic directly in the system prompt. Here is a structure that works:
+This is where the multi-agent shape becomes literal. You will build your three branches as discrete **Subagent nodes** on a canvas, connected to a router by labeled transition edges. Each Subagent has its own conversation goal, its own (optional) knowledge base, and its own (optional) tools. You will be able to *see* the branches in a single screenshot.
 
-```
-ROUTING LOGIC:
-When the user asks about an order or gives an order number, follow Branch 1 (Order Lookup).
-When the user's request is about [Branch 2 topic], follow Branch 2 instructions.
-When [escalation condition from your Agent Card], follow Branch 3 instructions.
-If you cannot determine which branch applies, ask one clarifying question before proceeding.
+**Why not just put routing logic in the system prompt?** It works in a quick demo, but it is not how a real organization sets up a multi-agent system. A monolithic prompt collapses everything into prose and gives you nothing to point at when a branch misbehaves. Discrete nodes let you isolate a failure to a single subagent, change its prompt without touching the others, and reason about handoffs as edges rather than rules buried in paragraphs.
 
-BRANCH 1 — Order Lookup:
-When the user wants to check an order, ask for their order ID if they have not already given it.
-Once you have the order ID, call the lookup_order tool.
-Read back what the customer ordered in plain, conversational language.
-If the tool returns no match, do not invent an order — say you could not find it and follow Branch 3.
-Exit when: the order contents have been read back, or no match was found.
+#### 3a — Start from a template
 
-BRANCH 2 — [Branch name]:
-[Specific instructions for this path. Reference the knowledge base document by name if possible.]
-[Tone, format, constraints specific to this branch.]
-Exit when: [resolved / user confirms / escalation needed]
+1. In the left navigation, click **Workflow**. You'll see an empty canvas with a single **Start** node.
+2. Click the **Templates** button in the toolbar at the top of the canvas. A "Workflow Templates" dialog opens with four patterns. Click **Qualification Flow** — the one described as *"Route users to specialized support based on their needs."*
+3. The canvas fills in with a five-node scaffold: **Start → Qualification Agent → (Technical Support, Billing Support) → End** (with an `End call condition` edge between each branch and its End node). You will reshape this into your three-branch agent.
 
-BRANCH 3 — Escalation:
-[Exact spoken handoff message.]
-[Do not attempt to resolve — hand off immediately.]
-Exit when: handoff is delivered
-```
+> **Skip the template?** You can also add nodes manually by clicking a node, then clicking the **+** icon that appears below it. The dropdown offers **Subagent**, **Say** (alpha), **Update state**, **Agent transfer**, **Phone number transfer**, **Tool**, and **End**. For this assignment, every branch is a **Subagent** node and every leaf is an **End** node. The template just saves you a few clicks.
 
-Write your actual branch instructions into this structure and paste it into your system prompt, below your agent's global role and context.
+#### 3b — Configure the Router (the entry subagent)
 
-You will not be able to fully test Branch 1 until you add the tool in Part 3 — write the routing and Branch 1 instructions now, wire the tool next.
+Click the **Qualification Agent** node. The right-hand inspector panel opens with five tabs: **General**, **Knowledge Base**, **Tools**, **Tests**, **Edges**.
+
+1. **Rename the node.** At the top of the inspector, click the node title and rename it to **Router** (or whatever name from your Part 1c router design).
+2. **General tab → Conversation goal.** Write what the router does — *greet, listen, decide which branch, ask one clarifying question if ambiguous, do not try to answer the caller's question itself*. This replaces the routing logic that would have lived in the system prompt.
+3. Leave **Voice**, **LLM**, **Eagerness**, and the other fields at their *Using default* settings unless you have a reason to change them.
+
+#### 3c — Configure your two pre-built branch Subagents
+
+Click the **Technical Support** node (the left child of the router). Rename it to your Branch 2 name (whatever you decided in Part 1b — for example, *IR Intake*). In the **General** tab, write the branch's **Conversation goal** — the per-node instructions for this subagent, the same content you would have written into "BRANCH 2 — [name]" in a system prompt.
+
+Then click the **Knowledge Base** tab for this node:
+
+1. Toggle **Inherit knowledge base** OFF. This isolates the node so it only sees what you explicitly attach.
+2. Click **Add document** under *Additional knowledge base*. A document picker appears.
+3. Select the document you uploaded in Step 2. The node card on the canvas will now show a small `+1` indicator at the bottom — that's your visual confirmation the KB is attached.
+
+Now click the **Billing Support** node (the right child of the router). Rename it to **Order Lookup**. In **General → Conversation goal**, write what the Order Lookup subagent does (ask for ID, call the tool, read back, do not invent an order if not found). Leave the **Knowledge Base** tab alone for this node — Order Lookup is powered by a tool, not a document. The tool itself will be attached in Part 3.
+
+#### 3d — Add the third branch: Escalation
+
+The template only ships with two branches. Add the third yourself:
+
+1. Click the **Router** node. A small **+** icon appears below it. Click the **+**.
+2. Pick **Subagent** from the dropdown. A new node appears, connected to the router by an unconfigured edge.
+3. Rename the new node to **Escalation**.
+4. In **General → Conversation goal**, paste the exact spoken handoff line from your Part 1a, plus a short instruction: *Do not attempt to resolve. Do not give the caller a phone number or email.* Then end the call.
+5. Click the **+** below the Escalation node and pick **End** to give the branch an exit.
+
+You should now have a router with three outgoing edges, three branch subagents, and three End nodes. Click the **Rearrange nodes** icon in the toolbar (then **Vertical**) if the layout has gotten tangled — it auto-tidies the canvas.
+
+#### 3e — Configure the transition edges
+
+The edges between Router and the three branches are how the workflow decides which subagent fires. Click the **Technical issue** label on the edge to the Branch 2 node. The inspector shows:
+
+- **Transition type:** *LLM Condition* (leave as-is)
+- **Label:** the short tag shown on the canvas — rename this to match Branch 2 (for example, *Security incident*)
+- **LLM condition:** a one-paragraph description of *when this edge should fire*. Write it as a description of caller intent, not as a rule (the LLM uses this to decide). Be explicit about what should NOT route here (for example: do not route here if the caller describes an active attack — that goes to Escalation).
+
+Repeat for the **Billing issue** edge → rename and describe for Order Lookup, and for the new edge to Escalation → name it something like *Active attack or asks for human* and describe the conditions from your Part 1b escalation row.
+
+For the **Escalation → End** edge, set a simple condition: *the handoff message has been delivered.* (ElevenLabs requires every transition to have a condition or a non-empty rule, even when the path is effectively unconditional.)
+
+When all three edges and the End transition are configured, the red `Errors` indicator at the top of the page should disappear and you'll see `Draft` instead — that's the workflow saying it's structurally valid.
 
 ---
 
 ### Step 4 — Set the Voice
 
-In the **Voice** section, choose any voice from the free library. Pick one that matches your agent's context — a customer service agent sounds different from an internal HR assistant.
+Return to the **Agent** tab (left nav). On the right side of that page is a **Voices** section showing the currently selected voice (default: *Eric — Smooth, Trustworthy*). Click the voice row to open the voice picker, then choose any voice from the free library. Pick one that matches your agent's context — a customer service agent sounds different from an internal HR assistant. (The voice is set at the agent level and inherited by every Subagent node, unless a specific node overrides it.)
 
 ---
 
@@ -169,45 +207,59 @@ Every student wires up the same tool against the same test API. It will not perf
 
 ### Step 1 — Add the Webhook Tool
 
-1. In your agent settings, on the **Agent** tab, find **Tools** → **Add Tool**.
-2. Select **Webhook** as the Tool Type.
-3. Configure it with these values:
+1. In the per-agent left navigation, click **Tools** (it's a top-level item, not buried inside the Agent tab).
+2. Click **Add tool** in the top right. A dropdown opens with three buttons: **Add webhook tool**, **Add client tool**, **Add integration tool**. Click **Add webhook tool**.
+3. A configuration panel slides in from the right. Fill in these top fields:
 
 | Field | Value |
 |-------|-------|
 | Name | `lookup_order` |
 | Description | Looks up a customer's order by its order ID and returns what they ordered. Call this when the user asks about the status or contents of an order. |
-| Method | GET |
+| Method | GET *(this is the default)* |
 | URL | `https://www.scottalanturner.com/api/order?order_id={order_id}` |
 
-4. Add **one parameter**, with value type **LLM Prompt**:
+4. As soon as you paste the URL, ElevenLabs detects the `{order_id}` placeholder and **auto-creates a Path parameter** for it. Scroll down to the **Path parameters** section and you'll see one row already filled in — Data type: `String`, Identifier: `order_id`, Value Type: `LLM Prompt`. You only need to add the **Description**:
 
-| Data Type | Identifier | Description |
-|-----------|------------|-------------|
-| string | `order_id` | The customer's order ID — a four-digit number the customer reads aloud, for example 1001. |
+| Field | Value |
+|-------|-------|
+| Description | The customer's order ID — a four-digit number the customer reads aloud, for example 1001. |
 
-5. **Authentication:** none. This is a public test endpoint — leave the authentication and headers empty.
-6. Save the tool.
+5. **Authentication:** none. This is a public test endpoint — leave Authentication empty (the field reads "Workspace has no auth connections" by default, which is fine). Leave Headers empty too.
+6. Leave all the other fields (Response timeout, Disable interruptions, Pre-tool speech, Execution mode, Tool call sound, Query parameters) at their defaults.
+7. Click **Add tool** at the bottom right of the panel to save.
 
 The `{order_id}` in the URL is a placeholder. ElevenLabs fills it in at call time with whatever order number the agent collected from the customer.
 
-### Step 2 — Tell Your Agent How to Use the Tool
+> **Tip — "Edit as JSON":** If the form gets in your way, the bottom-left of the tool panel has an "Edit as JSON" toggle that lets you paste the entire tool config as one blob. For this assignment the form is easier, but it's good to know the option exists.
 
-A tool that exists is not a tool that gets used. Your system prompt has to tell the agent *when* to call it and *what to do* with the answer. Confirm your Branch 1 instructions (from Part 2, Step 3) tell the agent to:
+### Step 2 — Attach the Tool to the Order Lookup Node
+
+In a workflow build, tools are not handed to the whole agent — they are scoped to the specific node that should be allowed to call them. This is part of what makes the multi-agent shape useful: the IR Intake subagent literally *cannot* call the order lookup tool, so it cannot wander into the wrong branch.
+
+1. In the left navigation, click **Workflow** to return to the canvas.
+2. Click the **Order Lookup** node to open its inspector.
+3. Click the **Tools** tab in the inspector.
+4. Toggle **Inherit tools** OFF (this prevents the node from getting any agent-level tools you didn't explicitly attach here).
+5. Click **Add tool** under *Additional tools*. A dropdown appears with your workspace tools listed at the top — pick **lookup_order**.
+6. The node card on the canvas now shows a wrench icon with `+1` at the bottom — that's the visual confirmation the tool is attached here and only here.
+
+> **Why not just leave Inherit tools on?** Because then every branch — including IR Intake and Escalation — would silently have access to `lookup_order`. A confused security-incident caller saying *"can you check my order"* could pull the IR Intake branch into a tool call it shouldn't make. Tight scoping prevents that.
+
+You also need to confirm the Order Lookup node's **Conversation goal** (from Step 3c in Part 2) tells the subagent to:
 
 - Ask for the order ID if the customer has not given one
 - Call `lookup_order` once it has the order ID
 - Read back what the customer ordered, conversationally
-- If no order is found, *not* invent one — say so and follow Branch 3
+- If no order is found, *not* invent one — say so and transition to Escalation
 
 ### Step 3 — Test the Tool
 
-The valid test order IDs are **1001 through 1006**. Each one returns a real (test) order.
+The valid test order IDs are **1001 through 1006**. Each one returns a real (test) order — the data is toy/STEM-kit themed.
 
-1. Open your agent's **Test** or **Try it** panel.
-2. Say something like: *"I want to check on my order."* Confirm the agent asks for your order ID.
+1. The test panel is the **right sidebar of the agent builder** — it's always open. The "Inline / Widget" tabs at the top switch the view; "Inline" is fine for testing. There's a microphone icon for voice and a text input at the bottom labeled "Send a message to start a chat."
+2. Type something like: *"I want to check on my order."* and press Enter. Confirm the agent asks for your order ID.
 3. Give it a valid ID — pick any from 1001 to 1006. **Confirm the agent calls the tool and tells you what was ordered.**
-4. Start again and give it an invalid ID — try `9999`. Confirm the agent does *not* invent an order; it should say it could not find that order and hand off.
+4. Click **End chat** at the top of the test panel, then **+ New conversation** to start fresh. Give the agent an invalid ID — try `9999`. Confirm the agent does *not* invent an order; it should say it could not find that order and follow your escalation branch.
 
 Take a screenshot of the tool configuration panel, and a screenshot showing a successful tool call (the agent reporting the order contents).
 
@@ -215,11 +267,20 @@ Take a screenshot of the tool configuration panel, and a screenshot showing a su
 
 ## Part 4 — Publish and Run Structured Test Conversations
 
-### Step 1 — Get Your Share Link
+### Step 1 — Publish and Get Your Share Link
 
-1. Look for a **Share**, **Publish**, or **Deploy** option in your agent settings.
-2. Copy the agent's shareable URL. This link lets anyone talk to your agent in a browser without an ElevenLabs account.
-3. Test the share link yourself before submitting — open it in a new browser tab and confirm it loads.
+ElevenLabs splits this into two actions: you have to **publish** the agent first, then construct the share URL. The two are not the same button.
+
+1. **Publish.** Click **Publish** in the top right of the agent builder. A "Review Changes" diff modal appears showing what changed since the last published version. Optionally add a version description, then click **Publish** at the bottom right of the modal to confirm. The "Draft" badge at the top should disappear once publishing succeeds.
+2. **Find your Agent ID.** Click the **⋯ (Agent actions)** menu at the very top right of the page (to the right of the Publish button). The dropdown's first row shows **Agent ID: agent_XXXXXXXXXXXXX...** — click the copy icon to copy it. (The "Share agent" option in this same menu is for sharing with workspace teammates, *not* for public sharing — don't confuse the two.)
+3. **Construct the public share URL** by pasting the Agent ID into this template:
+
+   ```text
+   https://elevenlabs.io/app/talk-to?agent_id=YOUR_AGENT_ID_HERE
+   ```
+
+   That URL opens a no-sign-in page with a "Call AI agent" button and a "Switch to Chat" option in the top right. This is the link to submit.
+4. **Test the share link before submitting** — open it in a new browser tab (or a private window so you're not logged in as yourself) and confirm it loads and the agent responds.
 
 This link is a required part of your submission. If the link does not work at grading time, the build portion of your grade cannot be assessed.
 
@@ -283,10 +344,11 @@ Your folder must contain:
    - **Three test conversation transcripts** — with routing assessment, knowledge-base/tool check, and pass/fail diagnosis (Part 4)
    - **Voice and tool failure analysis** — all three questions answered (Part 5)
 2. **Screenshots** — committed to the same folder (or a `screenshots/` subfolder) and referenced from your `README.md`:
-   - Your agent's system prompt showing the branch logic
-   - Your Branch 2 knowledge base
-   - The `lookup_order` tool configuration panel
-   - A successful tool call — the agent reporting an order's contents
+   - The **Workflow canvas** showing all three branches visible — router, three branch subagents, edges with labels, and the End nodes
+   - Your **Branch 2 subagent's Knowledge Base tab** showing the attached document
+   - Your **Order Lookup subagent's Tools tab** showing `lookup_order` attached
+   - The **`lookup_order` tool configuration panel** (from the agent's Tools page) showing the URL, parameter, and description
+   - A **successful tool call** — the agent reporting an order's contents during a test conversation
 
 Example folder layout:
 
@@ -294,8 +356,9 @@ Example folder layout:
 assignments/p3-voice-agent/
 ├── README.md
 └── screenshots/
-    ├── system-prompt.png
-    ├── knowledge-base.png
+    ├── workflow-canvas.png
+    ├── branch2-knowledge-base.png
+    ├── order-lookup-tool-attached.png
     ├── tool-config.png
     └── tool-call-success.png
 ```
