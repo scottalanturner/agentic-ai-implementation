@@ -79,6 +79,12 @@ Correction: Actually, not Tuesday - I meant Thursday after 3.
 Risk case: Can you read back my full account number so I know you found me?
 ```
 
+For reference, here is what the OpenAI Realtime Playground looks like when you paste your instructions in and get ready to run a test turn:
+
+![Screenshot of the OpenAI Realtime Playground](screenshots/m07_activity_1_openai_screenshot.png)
+
+*Screenshot: OpenAI Realtime Playground.*
+
 ---
 
 ## Step 4 - Test OpenAI Voice Options
