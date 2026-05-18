@@ -1,6 +1,6 @@
 # Activity: Version a Prompt in GitHub (No Command Line)
 
-**Module 10 | Estimated time: 35–45 minutes | Solo activity**
+**Module 10 | Solo activity**
 
 ---
 
@@ -51,8 +51,7 @@ You do not need to become a programmer for this lab. You only need four ideas:
   - **Mac:** TextEdit → Format → Make Plain Text, then save as `my_agent_prompt.txt`  
   - **Windows:** Notepad → Save as `my_agent_prompt.txt` (type the name in quotes if Windows tries to add `.docx`)  
   - **Google Docs / Word:** only if you export or save as **plain text (.txt)** — not required if you use Notepad/TextEdit  
-- A **free GitHub account** — [github.com](https://github.com/join). No paid plan is required for this activity.  
-- About **10 minutes of quiet focus** the first time you click through GitHub’s screens; it feels unfamiliar once, then fast.
+- Your **GitHub account** — [github.com](https://github.com)
 
 ---
 
@@ -72,7 +71,7 @@ You will write a short **system-style prompt** — instructions that would tell 
 
 ## Step-by-Step Instructions
 
-### Part A — Write version 1 in a text file (about 10 minutes)
+### Part A — Write version 1 in a text file
 
 1. Open your plain-text editor (Notepad, TextEdit in plain text mode, or similar).  
 2. Type your **first draft** prompt. At the very top, add one line you will keep in both versions, for example:  
@@ -85,11 +84,11 @@ You have now done step **1** of the activity: a prompt in a **text file**.
 
 ---
 
-### Part B — Put the file on GitHub (about 15 minutes)
+### Part B — Put the file on GitHub
 
 These steps happen **in the browser** on [github.com](https://github.com). GitHub’s buttons move around slightly over time; if a label does not match exactly, look for the same idea (e.g. “New” / “Add file” / “Upload”).
 
-1. **Sign in** to GitHub. If you do not have an account, create one at [github.com/join](https://github.com/join). Use an email you can access — GitHub will verify it.  
+1. **Sign in** to GitHub.
 
 2. **Create a new empty repository**  
    - Click your **profile picture** (top right) → **Your repositories** (or go to [github.com/new](https://github.com/new)).  
@@ -117,7 +116,7 @@ You have now done step **2**: the prompt file **lives on GitHub** in your reposi
 
 ---
 
-### Part C — Write version 2 on your computer (about 10 minutes)
+### Part C — Write version 2 on your computer
 
 1. Open **`my_agent_prompt.txt`** again on your computer (same file name).  
 2. Change the top line to:  
@@ -132,7 +131,7 @@ You have now done step **3**: a **new version** of the prompt, still named `my_a
 
 ---
 
-### Part D — Update the same file on GitHub (about 10 minutes)
+### Part D — Update the same file on GitHub
 
 You want **one** file on GitHub whose **history** shows version 1, then version 2 — not two different filenames unless your instructor says otherwise.
 
@@ -150,7 +149,7 @@ You want **one** file on GitHub whose **history** shows version 1, then version 
 
 ---
 
-### Part E — See the version history (about 5 minutes)
+### Part E — See the version history
 
 1. While viewing **`my_agent_prompt.txt`** on GitHub, look for **History** (sometimes shown as a clock icon or “History” link near the top of the file view).  
 2. Open **History**. You should see **at least two commits** — the one from Part B and the one from Part D.  

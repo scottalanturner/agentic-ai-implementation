@@ -1,7 +1,6 @@
 # Activity 3 — Will It Survive in the Wild?
 
 **Format:** In-class activity — solo
-**Time:** 12–15 minutes
 **Requires:** A web browser · two free LLM accounts (the same two from Activity 2, or any other pair)
 
 ---
@@ -16,7 +15,7 @@ You can reuse the agent and organization from Activity 2 (most efficient — kee
 
 ---
 
-## Step 1 — Fresh chats in both tabs (about 1 minute)
+## Step 1 — Fresh chats in both tabs
 
 Use the same two browser tabs from Activity 2, but start a **new chat** in each one. Keep the same roles:
 
@@ -25,7 +24,7 @@ Use the same two browser tabs from Activity 2, but start a **new chat** in each 
 
 ---
 
-## Step 2 — Set up your context and build the plan with LLM #1 (about 4–5 minutes)
+## Step 2 — Set up your context and build the plan with LLM #1
 
 In LLM #1, paste this prompt and fill in the three blanks before sending:
 
@@ -46,7 +45,7 @@ When you have a five-sentence plan you actually believe in, copy it.
 
 ---
 
-## Step 3 — Move to LLM #2, the critic (about 1 minute)
+## Step 3 — Move to LLM #2, the critic
 
 Open the second tab. Start a *fresh* chat. Paste this prompt — including your five-sentence plan in the spot indicated:
 
@@ -73,7 +72,7 @@ Open the second tab. Start a *fresh* chat. Paste this prompt — including your 
 
 ---
 
-## Step 4 — Iterate with the critic (about 5–6 minutes)
+## Step 4 — Iterate with the critic
 
 Three or four turns. Same rule as before:
 
@@ -81,7 +80,7 @@ Three or four turns. Same rule as before:
 
 The **over-permissioned** killer is the one most likely to surface — most plans hand-wave permissions in the planner phase. If that is yours, do not skip past it. That is exactly where the security material from Module 8 meets the operations material from Module 10: the blast radius of a single bad prompt or compromised account is set by the permissions you decided to grant.
 
-Stop when the critic can no longer easily break the plan — or when 15 minutes is up.
+Stop when the critic can no longer easily break the plan.
 
 ---
 

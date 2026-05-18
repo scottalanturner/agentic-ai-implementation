@@ -1,7 +1,6 @@
 # Activity 2 — Will Anyone Actually Use It?
 
 **Format:** In-class activity — solo
-**Time:** 12–15 minutes
 **Requires:** A web browser · two free LLM accounts (any pair — for example, Claude + ChatGPT, or ChatGPT + Gemini)
 
 ---
@@ -22,7 +21,7 @@ Using two *different* products (different accounts, not two tabs of the same mod
 
 ---
 
-## Step 1 — Open two tabs (about 1 minute)
+## Step 1 — Open two tabs
 
 Open two browser tabs in two *different* free LLM products. Suggested pairings:
 
@@ -34,7 +33,7 @@ Pick one tab to be **LLM #1 — the planner.** The other will be **LLM #2 — th
 
 ---
 
-## Step 2 — Set up your context and build the plan with LLM #1 (about 4–5 minutes)
+## Step 2 — Set up your context and build the plan with LLM #1
 
 In LLM #1, paste this prompt and fill in the three blanks before sending:
 
@@ -57,7 +56,7 @@ When you have a five-sentence plan you actually believe in, copy it.
 
 ---
 
-## Step 3 — Move to LLM #2, the critic (about 1 minute)
+## Step 3 — Move to LLM #2, the critic
 
 Open the second tab. Start a *fresh* chat. Paste this prompt — including your five-sentence plan in the spot indicated:
 
@@ -84,7 +83,7 @@ Open the second tab. Start a *fresh* chat. Paste this prompt — including your 
 
 ---
 
-## Step 4 — Iterate with the critic (about 5–6 minutes)
+## Step 4 — Iterate with the critic
 
 Three or four turns. The most important rule:
 
@@ -92,7 +91,7 @@ Three or four turns. The most important rule:
 
 Your instinct will be to argue *against* the critic. The activity is more valuable when you argue *with* the critic — testing each objection. If the critic names a weakness you disagree with, ask "why specifically?" If you agree, revise one sentence and ask the critic to look at the new version.
 
-Stop when the critic can no longer easily break the plan — or when 15 minutes is up, whichever comes first.
+Stop when the critic can no longer easily break the plan.
 
 ---
 

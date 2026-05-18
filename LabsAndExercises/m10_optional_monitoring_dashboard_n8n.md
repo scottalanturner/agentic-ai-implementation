@@ -1,7 +1,6 @@
 # Optional: Read the Monitoring Dashboard in n8n
 
 **Format:** Optional self-paced practice — solo
-**Time:** 15–20 minutes
 **Requires:** A web browser · The free n8n account you created in Module 5
 
 > This is an optional, self-paced practice activity — it is not run in class. If you want hands-on time with what "monitoring" actually looks like on an agent you already built, this is the cheapest version of the discipline. You will see the difference between a run that **errored** and a run that "succeeded" but produced a **bad answer** — and why surface monitoring misses the second one.
@@ -27,7 +26,7 @@ That Executions view is a **monitoring dashboard**. Today you are the operator, 
 
 ---
 
-## Step 1 — Reopen your Module 5 agent (about 2 minutes)
+## Step 1 — Reopen your Module 5 agent
 
 1. Go to [n8n.io](https://n8n.io) and sign in to the account you created in Module 5.
 2. Open the workflow you built in Module 5 — **Chat Trigger → AI Agent (Wikipedia + Calculator) → Chat Reply**.
@@ -36,7 +35,7 @@ That Executions view is a **monitoring dashboard**. Today you are the operator, 
 
 ---
 
-## Step 2 — Run it several times — including one run built to struggle (about 4 minutes)
+## Step 2 — Run it several times — including one run built to struggle
 
 Open the chat window (**Test workflow** or the **Chat** button) and send these prompts **one at a time**, letting each finish before the next:
 
@@ -52,7 +51,7 @@ The agent has a Wikipedia tool and a Calculator tool. Neither one returns live w
 
 ---
 
-## Step 3 — Open the Executions view — your monitoring dashboard (about 3 minutes)
+## Step 3 — Open the Executions view — your monitoring dashboard
 
 1. Leave the chat. In the workflow, find the **Executions** tab (near the top of the workflow, sometimes shown as a list or clock icon).
 2. You should see a row for **each run** you just did. For each row, n8n shows you:
@@ -68,7 +67,7 @@ This list is the same thing a production monitoring tool gives you, just smaller
 
 ---
 
-## Step 4 — Drill into one run — read the trace (about 3 minutes)
+## Step 4 — Drill into one run — read the trace
 
 1. Click the **run 4** execution (the weather question) to open it.
 2. Click the **AI Agent node** to expand its trace — the same trace view you read in Module 5.
@@ -81,7 +80,7 @@ Here is the key observation: **run 4 may show "succeeded" in the dashboard even 
 
 ---
 
-## Step 5 — Reflect (about 3 minutes)
+## Step 5 — Reflect
 
 Answer these two questions in a few sentences each:
 
