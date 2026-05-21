@@ -142,7 +142,3 @@ That's the shift. The interesting question is no longer "can we build one?" — 
 | Sign-up loops or won't accept your account | Try Google sign-in if you didn't already, or use a different browser. If still stuck, flag the instructor |
 
 ---
-
-## Instructor Note
-
-Briefly walk through Chatbase sign-up live before turning students loose. Account creation is the most common stuck point — once they're past the dashboard landing page, the rest of the activity is self-driving. If the class is async, record a short sign-up walkthrough and link it at the top of this file.
